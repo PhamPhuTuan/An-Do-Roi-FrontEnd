@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // page message, group chat, post, chat
-        setContentView(R.layout.message);
+        setContentView(R.layout.admin_dashboard);
 
 //        setContentView(R.layout.group_chat);
 
@@ -33,18 +33,18 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(R.layout.chat);
 
 
-        listView = findViewById(R.id.listview);
-        name = new ArrayList<>();
-        name.add("Tuan");
-        name.add("Thanh");
-        name.add("Nghia");
-
-        time = new ArrayList<>();
-        time.add("2s ago");
-        time.add("1 minute");
-        time.add("5 minute");
-
-        adapter = new ListViewAdapter(this, name, time);
-        listView.setAdapter(adapter);
+//        listView = findViewById(R.id.listview);
+//        name = new ArrayList<>();
+//        name.add("Tuan");
+//        name.add("Thanh");
+//        name.add("Nghia");
+//
+//        time = new ArrayList<>();
+//        time.add("2s ago");
+//        time.add("1 minute");
+//        time.add("5 minute");
+//
+//        adapter = new ListViewAdapter(this, name, time);
+//        listView.setAdapter(adapter);
     }
 }
