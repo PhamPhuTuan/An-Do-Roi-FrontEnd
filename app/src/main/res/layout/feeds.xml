@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTintMode="src_over"
+    android:forceDarkAllowed="false"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:background="@drawable/shape"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13">
+
+        <!-- User Input -->
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00EEEEEE"
+            android:hint="Type something..."
+            android:padding="8dp" />
+
+        <!-- Button for Posting Picture -->
+        <Button
+            android:id="@+id/buttonPostPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#1E88E5"
+            android:text="Post Picture"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <!-- Image Buttons (3 image buttons) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/camera" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/galery" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/emoji" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Feeds"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        android:background="@drawable/shape"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <!-- User Image -->
+        <ImageView
+            android:id="@+id/imageUser"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_bg"
+            android:contentDescription="User Image"
+            android:src="@drawable/userimg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- User Name -->
+        <TextView
+            android:id="@+id/textUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Thanh Phan Cong"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/textPostTime"
+            app:layout_constraintStart_toEndOf="@+id/imageUser"
+            app:layout_constraintTop_toTopOf="@+id/imageUser" />
+
+        <!-- Post Time -->
+        <TextView
+            android:id="@+id/textPostTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="2 hrs ago"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageUser" />
+
+        <!-- Post Description -->
+
+        <!-- Post Image -->
+
+        <!-- Like Button -->
+
+        <TextView
+            android:id="@+id/textPostDescription"
+            android:layout_width="250dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="12dp"
+            android:text="Hello, im Thanh UIT!"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageUser"
+            app:layout_constraintTop_toBottomOf="@+id/imageUser" />
+
+        <ImageView
+            android:id="@+id/imagePost"
+            android:layout_width="250dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Post Image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/postimg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textPostDescription" />
+
+        <!-- Like Count -->
+        <!-- Comment Button -->
+
+        <!-- Share Button -->
+
+        <ImageButton
+            android:id="@+id/buttonLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:contentDescription="Like Icon"
+            android:src="@drawable/likebtn"
+            app:layout_constraintStart_toStartOf="@+id/imagePost"
+            app:layout_constraintTop_toBottomOf="@+id/imagePost" />
+
+        <TextView
+            android:id="@+id/textLikeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:text="10 likes"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="normal|bold"
+            app:layout_constraintStart_toEndOf="@+id/buttonLike"
+            app:layout_constraintTop_toTopOf="@+id/buttonLike" />
+
+        <ImageButton
+            android:id="@+id/buttonComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:contentDescription="Comment Icon"
+            android:src="@drawable/commentic"
+            app:layout_constraintStart_toEndOf="@+id/textLikeCount"
+            app:layout_constraintTop_toTopOf="@+id/buttonLike" />
+
+        <ImageButton
+            android:id="@+id/buttonShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:contentDescription="Share Icon"
+            android:src="@drawable/ic_share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.612"
+            app:layout_constraintStart_toEndOf="@+id/buttonComment"
+            app:layout_constraintTop_toTopOf="@+id/buttonLike" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

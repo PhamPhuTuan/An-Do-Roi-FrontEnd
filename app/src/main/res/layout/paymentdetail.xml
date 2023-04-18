@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTintMode="src_over"
+    android:forceDarkAllowed="false"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PAYMENT"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_dropdown_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:id="@+id/tvSelectedItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Trial"
+            android:textColor="#91E384"
+            android:textSize="25sp"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:id="@+id/tvSelectedSubItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvSelectedItem"
+            android:padding="8dp"
+            android:text="10 HG Coins"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/ivDropdownIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="12dp"
+            android:padding="1dp"
+            android:src="@drawable/dropdownicon" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:padding="8dp"
+        android:text="DISCOUNT CODE"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container" />
+
+    <EditText
+        android:id="@+id/etDiscountCode"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/tvLabel"
+        android:hint="    Enter code..."
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="8dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDiscountCode"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+
+            android:id="@+id/tvLeftData1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="PACKAGE VALUE"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvRightData1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRightData1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.000 VND"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvLeftData1"
+            app:layout_constraintTop_toTopOf="@id/tvLeftData1" />
+
+
+        <TextView
+            android:id="@+id/tvLeftData2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="DISCOUNT"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvRightData2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLeftData1" />
+
+        <TextView
+            android:id="@+id/tvRightData2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 VND"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvLeftData2"
+            app:layout_constraintTop_toTopOf="@id/tvLeftData2" />
+
+
+        <TextView
+            android:id="@+id/tvLeftData3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TOTAL"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvRightData3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLeftData2" />
+
+        <TextView
+            android:id="@+id/tvRightData3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.000 VND"
+            android:textColor="#91E384"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvLeftData3"
+            app:layout_constraintTop_toTopOf="@id/tvLeftData3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="228dp"
+        android:background="#cccccc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.097" />
+
+    <!-- Button 2: MOMO (DIGITAL WALLET) -->
+    <Button
+        android:id="@+id/buttonPayByBankTransfer"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="#E7778B"
+        android:drawableStart="@drawable/napas"
+        android:drawablePadding="8dp"
+        android:text="PAY BY BANK TRANSFER"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonMomo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMomo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPayByBankTransfer" />
+
+    <Button
+        android:id="@+id/buttonMomo"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:background="#E7778B"
+        android:backgroundTint="#E7778B"
+        android:drawableStart="@drawable/momo"
+        android:drawablePadding="8dp"
+        android:text="MOMO (DIGITAL WALLET)"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.943" />
+</androidx.constraintlayout.widget.ConstraintLayout>
