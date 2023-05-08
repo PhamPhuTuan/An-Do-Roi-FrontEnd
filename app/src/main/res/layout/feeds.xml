@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:background="#00EEEEEE"
             android:hint="Type something..."
-            android:padding="8dp" />
+            android:padding="8dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <!-- Button for Posting Picture -->
         <Button
@@ -44,7 +45,8 @@
             android:background="#1E88E5"
             android:text="Post Picture"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="TextContrastCheck" />
 
         <!-- Image Buttons (3 image buttons) -->
         <LinearLayout
@@ -61,20 +63,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/camera" />
+                android:src="@drawable/camera"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/galery" />
+                android:src="@drawable/galery"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/emoji" />
+                android:src="@drawable/emoji"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
@@ -187,7 +192,8 @@
             android:contentDescription="Like Icon"
             android:src="@drawable/likebtn"
             app:layout_constraintStart_toStartOf="@+id/imagePost"
-            app:layout_constraintTop_toBottomOf="@+id/imagePost" />
+            app:layout_constraintTop_toBottomOf="@+id/imagePost"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/textLikeCount"
@@ -212,7 +218,8 @@
             android:contentDescription="Comment Icon"
             android:src="@drawable/commentic"
             app:layout_constraintStart_toEndOf="@+id/textLikeCount"
-            app:layout_constraintTop_toTopOf="@+id/buttonLike" />
+            app:layout_constraintTop_toTopOf="@+id/buttonLike"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/buttonShare"
@@ -227,9 +234,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.612"
             app:layout_constraintStart_toEndOf="@+id/buttonComment"
-            app:layout_constraintTop_toTopOf="@+id/buttonLike" />
+            app:layout_constraintTop_toTopOf="@+id/buttonLike"
+            tools:ignore="TouchTargetSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="94dp"
+        android:layout_height="41dp"
+        android:background="#FFFFFF"
+        android:text="Back to Home"
+        app:rippleColor="@color/black"
+        tools:ignore="MissingConstraints,TextContrastCheck"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="13dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

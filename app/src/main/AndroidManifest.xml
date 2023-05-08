@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Gym"
         tools:targetApi="31">
         <activity
-            android:name="com.example.admin.MainActivity"
+            android:name="com.example.gym.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
