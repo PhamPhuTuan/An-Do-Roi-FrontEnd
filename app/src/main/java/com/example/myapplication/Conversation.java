@@ -8,90 +8,69 @@ public class Conversation {
     private int partnerId;
     private boolean isGroupConver;
     private boolean isBlock;
-    private long lastActive;
+    private int lastActive;
     private String nickname;
-    private String Message;
     private int __v;
     private PartnerInfo partnerinfo;
+    private String Message;
 
+    // Constructor
+    public Conversation(int _id, int userId, int partnerId, boolean isGroupConver, boolean isBlock, int lastActive,
+                        String nickname, int __v, PartnerInfo partnerinfo, String message) {
+        this._id = _id;
+        this.userId = userId;
+        this.partnerId = partnerId;
+        this.isGroupConver = isGroupConver;
+        this.isBlock = isBlock;
+        this.lastActive = lastActive;
+        this.nickname = nickname;
+        this.__v = __v;
+        this.partnerinfo = partnerinfo;
+        this.Message = message;
+    }
 
-    public void setMessage(String message) {
-        Message = message;
-    }
-    public String getMessage() {
-        return Message;
-    }
+    // Getter methods
+
     public int get_id() {
         return _id;
-    }
-
-    public void set_id(int _id) {
-        this._id = _id;
     }
 
     public int getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
     public int getPartnerId() {
         return partnerId;
-    }
-
-    public void setPartnerId(int partnerId) {
-        this.partnerId = partnerId;
     }
 
     public boolean isGroupConver() {
         return isGroupConver;
     }
 
-    public void setGroupConver(boolean groupConver) {
-        isGroupConver = groupConver;
-    }
-
     public boolean isBlock() {
         return isBlock;
     }
 
-    public void setBlock(boolean block) {
-        isBlock = block;
-    }
-
-    public long getLastActive() {
+    public int getLastActive() {
         return lastActive;
-    }
-
-    public void setLastActive(long lastActive) {
-        this.lastActive = lastActive;
     }
 
     public String getNickname() {
         return nickname;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public int get__v() {
         return __v;
-    }
-
-    public void set__v(int __v) {
-        this.__v = __v;
     }
 
     public PartnerInfo getPartnerinfo() {
         return partnerinfo;
     }
 
-    public void setPartnerinfo(PartnerInfo partnerinfo) {
-        this.partnerinfo = partnerinfo;
+    public String getMessage() {
+        return Message;
     }
+
 
     public class PartnerInfo {
         private int age;

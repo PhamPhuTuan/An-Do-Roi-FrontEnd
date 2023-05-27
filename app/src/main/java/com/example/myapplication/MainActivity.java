@@ -123,9 +123,11 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
 
     private void getConversation(ApiService apiService, int id) {
         Call<List<Conversation>> call = apiService.getConversation(id);
+        Log.d("bug", call.request().url().toString());
         call.enqueue(new Callback<List<Conversation>>() {
             @Override
             public void onResponse(Call<List<Conversation>> call, Response<List<Conversation>> response) {
+                Log.d("bug", "vô");
                 if (response.isSuccessful()) {
                     conversationList = response.body();
 
