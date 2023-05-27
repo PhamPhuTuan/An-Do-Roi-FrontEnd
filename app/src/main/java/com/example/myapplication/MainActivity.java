@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
 
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://ambiguous-walnut-sign.glitch.me/")
+                .baseUrl("https://zinc-historical-epoxy.glitch.me/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -123,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
 
     private void getConversation(ApiService apiService, int id) {
         Call<List<Conversation>> call = apiService.getConversation(id);
-        Log.d("bug", call.request().url().toString());
         call.enqueue(new Callback<List<Conversation>>() {
             @Override
             public void onResponse(Call<List<Conversation>> call, Response<List<Conversation>> response) {

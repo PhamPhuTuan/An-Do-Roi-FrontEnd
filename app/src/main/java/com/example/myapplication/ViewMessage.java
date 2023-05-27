@@ -53,7 +53,7 @@ public class ViewMessage extends AppCompatActivity {
         // Ví dụ sử dụng Retrofit:
         Log.d("bug", "message1");
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://ambiguous-walnut-sign.glitch.me/")
+                .baseUrl("https://zinc-historical-epoxy.glitch.me/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Log.d("bug", "message2");
@@ -81,7 +81,7 @@ public class ViewMessage extends AppCompatActivity {
     private void postMessageOfUser(String messageContent, int conversationId, int userId) {
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("hhttps://ambiguous-walnut-sign.glitch.me/")
+                .baseUrl("https://zinc-historical-epoxy.glitch.me/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

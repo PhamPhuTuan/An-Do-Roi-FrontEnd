@@ -21,4 +21,10 @@ public interface ApiService {
 
     @GET("v1/conversation/{id}")
     Call<List<Conversation>> searchConversation(@Path("id") int id, @Query("name") String name);
+
+    @GET("v1/foodsUser/{id}")
+    Call<List<FoodUser>> getFoodUserBySession(@Path("id") int id, @Query("session") String session);
+
+    @GET("v1/foodsUser/{id}")
+    Call<List<FoodUser>> getFoodUser(@Path("id") int id);
 }
