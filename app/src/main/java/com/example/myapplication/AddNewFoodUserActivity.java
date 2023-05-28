@@ -112,13 +112,13 @@ public class AddNewFoodUserActivity extends AppCompatActivity {
     private void postMessageOfUser(ApiService apiService) {
 
         // Tạo object Message
-        FoodUser foodUser = new FoodUser();
-        foodUser.setFoodId(1);
-        foodUser.setUserId(1);
-        foodUser.setUseDatetime(123);
-        foodUser.setSession("lunch");
 
-        Log.d("bug", String.valueOf(new Gson().toJson(foodUser)));
+        FoodUser foodUser = new FoodUser();
+        foodUser.setFoodId(Integer.parseInt(foodIdEditText.getText().toString()));
+        foodUser.setUserId(Integer.parseInt(userIdEditText.getText().toString()));
+        foodUser.setUseDatetime(Integer.parseInt(useDatetimeEditText.getText().toString()));
+        foodUser.setSession(sessionsSpinner.getSelectedItem().toString());
+
         // Gửi yêu cầu POST
         Call<FoodUser> call = apiService.postFoodUser(foodUser);
         Log.d("bug", "voo");
@@ -128,6 +128,7 @@ public class AddNewFoodUserActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // Xử lý thành công
                     FoodUser postedFoodUser = response.body();
+//                    Log.d("bug", String.valueOf(new Gson().toJson(postedFoodUser)));
                     Toast.makeText(AddNewFoodUserActivity.this, "Post foodUser successfully", Toast.LENGTH_SHORT).show();
 
 //                    }
