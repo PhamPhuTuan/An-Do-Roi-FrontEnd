@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -93,7 +95,7 @@ public class ViewMessage extends AppCompatActivity {
         message.setConversationId(conversationId);
         message.setSenderId(userId);
         message.setMessageContent(messageContent);
-
+        Log.d("bug", String.valueOf(new Gson().toJson(message)));
         // Gửi yêu cầu POST
         Call<Message> call = apiService.postMessage(message);
         call.enqueue(new Callback<Message>() {

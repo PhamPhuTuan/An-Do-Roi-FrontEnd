@@ -27,4 +27,11 @@ public interface ApiService {
 
     @GET("v1/foodsUser/{id}")
     Call<List<FoodUser>> getFoodUser(@Path("id") int id);
+
+    @GET("v1/foodsUser")
+    Call<FoodUser> postFoodUser(@Body FoodUser foodUser);
+
+    @GET("v1/food")
+    Call<List<FoodItem>> getFoodList();
+
 }

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string-array name="Session_items">
+        <item>breakfast</item>
+        <item>lunch</item>
+        <item>afternoon</item>
+        <item>dinner</item>
+        <!-- Thêm các món ăn khác vào đây -->
+    </string-array>
 </resources>

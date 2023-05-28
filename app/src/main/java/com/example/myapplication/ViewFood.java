@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -25,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ViewFood extends AppCompatActivity {
     private ListView listView;
-    private FoodListAdapter adapter;
+    private FoodUserListAdapter adapter;
     private List<FoodUser> foodUsersList;
     private ApiService apiService;
     private ImageView btn_breakfast;
@@ -37,12 +36,13 @@ public class ViewFood extends AppCompatActivity {
     private TextView sumKcalSession;
     private float sumKcalS = 0;
     private float sumKcalD = 0;
+    private ImageView addNewFood;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.food);
+        setContentView(R.layout.food_user);
         listView = findViewById(R.id.list_food);
         btn_breakfast = findViewById(R.id.btn_breakfast);
         btn_lunch = findViewById(R.id.btn_lunch);
@@ -51,6 +51,7 @@ public class ViewFood extends AppCompatActivity {
         sessionTitle = findViewById(R.id.sessionTitle);
         sumKcalDay = findViewById(R.id.sumkcal);
         sumKcalSession = findViewById(R.id.sumkcalsession);
+        addNewFood = findViewById(R.id.addNewFood);
 
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -96,27 +97,33 @@ public class ViewFood extends AppCompatActivity {
                 sessionTitle.setText("dinner");
             }
         });
+        addNewFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewFood.this, AddNewFoodUserActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void getFoodUserBySession(ApiService apiService, int id, String Session) {
         Call<List<FoodUser>> call = apiService.getFoodUserBySession(id, Session);
         sumKcalS = 0;
-        Log.d("bug", call.request().url().toString());
+//        Log.d("bug", call.request().url().toString());
         call.enqueue(new Callback<List<FoodUser>>() {
             @Override
             public void onResponse(Call<List<FoodUser>> call, Response<List<FoodUser>> response) {
                 if (response.isSuccessful()) {
                     foodUsersList = response.body();
                     for(int i=0 ;i < foodUsersList.size() ; i++){
-                        Log.d("bug", String.valueOf(new Gson().toJson(foodUsersList.get(i).getFoodInfo().getKcal())));
+//                        Log.d("bug", String.valueOf(new Gson().toJson(foodUsersList.get(i).getFoodInfo().getKcal())));
                         sumKcalS = sumKcalS + foodUsersList.get(i).getFoodInfo().getKcal();
                     }
-                    Log.d("bug", String.valueOf(sumKcalS));
-                    sumKcalSession.setText( sumKcalS + " KCal");
+                    sumKcalSession.setText( sumKcalS + " Calories");
 
 //                    Log.d("bug", String.valueOf(new Gson().toJson(foodUsersList)));
                     // Tạo adapter và gán cho ListView
-                    adapter = new FoodListAdapter(ViewFood.this, foodUsersList);
+                    adapter = new FoodUserListAdapter(ViewFood.this, foodUsersList);
 //                    adapter.setOnConversationClickListener(MainActivity.this); // Đăng ký listener
                     listView.setAdapter(adapter);
                 } else {
@@ -134,24 +141,16 @@ public class ViewFood extends AppCompatActivity {
     private void getFoodUser(ApiService apiService, int id) {
         Call<List<FoodUser>> call = apiService.getFoodUser(id);
         sumKcalD = 0;
-        Log.d("bug", call.request().url().toString());
         call.enqueue(new Callback<List<FoodUser>>() {
             @Override
             public void onResponse(Call<List<FoodUser>> call, Response<List<FoodUser>> response) {
                 if (response.isSuccessful()) {
                     foodUsersList = response.body();
                     for(int i=0 ;i < foodUsersList.size() ; i++){
-                        Log.d("bug", String.valueOf(new Gson().toJson(foodUsersList.get(i).getFoodInfo().getKcal())));
                         sumKcalD = sumKcalD + foodUsersList.get(i).getFoodInfo().getKcal();
                     }
-                    Log.d("bug", String.valueOf(sumKcalD));
                     sumKcalDay.setText( sumKcalD + " Calories");
 
-//                    Log.d("bug", String.valueOf(new Gson().toJson(foodUsersList)));
-                    // Tạo adapter và gán cho ListView
-                    adapter = new FoodListAdapter(ViewFood.this, foodUsersList);
-//                    adapter.setOnConversationClickListener(MainActivity.this); // Đăng ký listener
-                    listView.setAdapter(adapter);
                 } else {
                     Toast.makeText(ViewFood.this, "Failed to get foodUser", Toast.LENGTH_SHORT).show();
                 }

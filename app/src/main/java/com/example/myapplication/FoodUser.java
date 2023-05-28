@@ -14,6 +14,7 @@ public class FoodUser {
 
     }
 
+
     public FoodUser(int id, int foodId, int userId, long useDatetime, String session, FoodInfo foodinfo ) {
         this.id = id;
         this.foodId = foodId;
