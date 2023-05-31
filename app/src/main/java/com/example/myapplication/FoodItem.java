@@ -12,6 +12,9 @@ public class FoodItem {
     private String attachment;
 
     // Constructors, getters, and setters
+    public FoodItem(){
+
+    }
 
     public FoodItem(int _id, String attachId, String ingredients, int kcal, String name, String nutrition, String recipe, int __v, String attachment) {
         this._id = _id;

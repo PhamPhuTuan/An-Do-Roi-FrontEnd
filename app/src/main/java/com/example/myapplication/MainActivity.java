@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
     private EditText searchEditText;
     private ApiService apiService;
     private ImageView addNewPartner;
+    private Button foodActivity;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
         listView = findViewById(R.id.list_view);
         searchEditText = findViewById(R.id.searchEditText);
         addNewPartner = findViewById(R.id.addNewPartner);
+        foodActivity = findViewById(R.id.foodActivity);
 
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -73,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
                 if(searchEditText.getText().toString().length() != 0){
                     Log.d("bug", searchEditText.getText().toString());
                     fetchConversation(conversationId, searchEditText.getText().toString());
-
                 }else{
                     getConversation(apiService, conversationId);
                 }
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
             }
         });
 
-        addNewPartner.setOnClickListener(new View.OnClickListener() {
+        foodActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Xử lý sự kiện onClick tại đây

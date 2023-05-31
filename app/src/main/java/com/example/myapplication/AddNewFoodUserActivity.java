@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -79,6 +80,14 @@ public class AddNewFoodUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 postMessageOfUser(apiService);
+            }
+        });
+
+        AddNewFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddNewFoodUserActivity.this, AddNewFood.class);
+                startActivity(intent);
             }
         });
 

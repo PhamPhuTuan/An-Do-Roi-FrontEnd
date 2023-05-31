@@ -15,6 +15,7 @@
         <activity android:name=".ViewMessage" />
         <activity android:name=".ViewFood" />
         <activity android:name=".AddNewFoodUserActivity"/>
+        <activity android:name=".AddNewFood"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

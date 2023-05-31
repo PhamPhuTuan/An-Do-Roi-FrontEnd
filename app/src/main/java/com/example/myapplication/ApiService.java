@@ -34,4 +34,7 @@ public interface ApiService {
     @GET("v1/food")
     Call<List<FoodItem>> getFoodList();
 
+    @POST("v1/food")
+    Call<FoodItem> addNewFood(@Body FoodItem foodItem);
+
 }
