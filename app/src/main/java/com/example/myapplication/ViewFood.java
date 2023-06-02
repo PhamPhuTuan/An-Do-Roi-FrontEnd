@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -38,7 +35,6 @@ public class ViewFood extends AppCompatActivity {
     private float sumKcalD = 0;
     private ImageView addNewFood;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +48,10 @@ public class ViewFood extends AppCompatActivity {
         sumKcalDay = findViewById(R.id.sumkcal);
         sumKcalSession = findViewById(R.id.sumkcalsession);
         addNewFood = findViewById(R.id.addNewFood);
-
+        Log.d("bug", "vô view Food");
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zinc-historical-epoxy.glitch.me/")
+                .baseUrl("http://172.20.135.219:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

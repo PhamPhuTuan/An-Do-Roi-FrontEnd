@@ -33,6 +33,7 @@ public class ViewMessage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_message);
+        Log.d("bug","vô");
         //get id from intent
         conversationId = getIntent().getIntExtra("conversation_id", -1);
         userId = getIntent().getIntExtra("user_id", -1);
@@ -51,20 +52,16 @@ public class ViewMessage extends AppCompatActivity {
         });
     }
     private void getMessageOfUser(int conversationId) {
-        // Sử dụng Retrofit hoặc HttpClient để fetch API mới
-        // Ví dụ sử dụng Retrofit:
-        Log.d("bug", "message1");
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zinc-historical-epoxy.glitch.me/")
+                .baseUrl("http://172.20.135.219:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        Log.d("bug", "message2");
         ApiService apiService = retrofit.create(ApiService.class);
         Call<List<Message>> call = apiService.getNewApi(conversationId);
-        Log.d("bug", "message3");
         call.enqueue(new Callback<List<Message>>() {
             @Override
             public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
+                Log.d("bug", "message4");
                 String responseBody = response.body().toString();
                 messageList = response.body();
                 // Tạo adapter và gán cho ListView
@@ -83,7 +80,7 @@ public class ViewMessage extends AppCompatActivity {
     private void postMessageOfUser(String messageContent, int conversationId, int userId) {
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zinc-historical-epoxy.glitch.me/")
+                .baseUrl("http://172.20.135.219:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

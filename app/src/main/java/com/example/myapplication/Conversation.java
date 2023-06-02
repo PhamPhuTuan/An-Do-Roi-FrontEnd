@@ -5,6 +5,47 @@ import com.google.gson.annotations.SerializedName;
 public class Conversation {
     private int _id;
     private int userId;
+
+    public Conversation(){
+
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setPartnerId(int partnerId) {
+        this.partnerId = partnerId;
+    }
+
+    public void setGroupConver(boolean groupConver) {
+        isGroupConver = groupConver;
+    }
+
+    public void setBlock(boolean block) {
+        isBlock = block;
+    }
+
+    public void setLastActive(int lastActive) {
+        this.lastActive = lastActive;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void set__v(int __v) {
+        this.__v = __v;
+    }
+
+    public void setMessage(String message) {
+        Message = message;
+    }
+
     private int partnerId;
     private boolean isGroupConver;
     private boolean isBlock;

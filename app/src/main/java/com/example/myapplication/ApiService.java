@@ -13,6 +13,9 @@ public interface ApiService {
     @GET("v1/conversation/{id}")
     Call<List<Conversation>> getConversation(@Path("id") int id);
 
+    @POST("v1/conversation")
+    Call<Conversation> postConversation(@Body Conversation conversation);
+
     @GET("v1/message/{id}")
     Call<List<Message>> getNewApi(@Path("id") int conversationId);
 

@@ -14,14 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Collections;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
     private ImageView addNewPartner;
     private Button foodActivity;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
 
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://zinc-historical-epoxy.glitch.me/")
+                .baseUrl("http://172.20.135.219:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -74,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
                 // Thực hiện hành động khi văn bản thay đổi
                 if(searchEditText.getText().toString().length() != 0){
                     Log.d("bug", searchEditText.getText().toString());
-                    fetchConversation(conversationId, searchEditText.getText().toString());
+                    fetchConversation(apiService, conversationId, searchEditText.getText().toString());
                 }else{
                     getConversation(apiService, conversationId);
                 }
@@ -83,6 +74,15 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
             @Override
             public void afterTextChanged(Editable s) {
                 // Không cần thực hiện hành động gì sau khi văn bản thay đổi
+            }
+        });
+
+        addNewPartner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Vo ne", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AddNewConversation.class);
+                startActivity(intent);
             }
         });
 
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
             }
         });
     }
-    private void fetchConversation(int conversationId, String name) {
+    private void fetchConversation(ApiService apiService,int conversationId, String name) {
         Call<List<Conversation>> call = apiService.searchConversation(conversationId, name);
         call.enqueue(new Callback<List<Conversation>>() {
             @Override
@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
     }
 
     private void getConversation(ApiService apiService, int id) {
+        Log.d("bug", "vô");
         Call<List<Conversation>> call = apiService.getConversation(id);
         call.enqueue(new Callback<List<Conversation>>() {
             @Override
@@ -143,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
             @Override
             public void onFailure(Call<List<Conversation>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
     }
@@ -158,4 +160,3 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
         startActivity(intent);
     }
 }
-
