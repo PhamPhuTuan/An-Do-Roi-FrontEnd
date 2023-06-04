@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddNewFoodUserActivity">
+
+    <TextView
+        android:id="@+id/titleFood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List Of Food"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/listFood"
+        android:textColor="#70E83F"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listFood"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_above="@+id/titleFoodUser"
+        android:layout_marginBottom="70dp" />
+
+    <Button
+        android:id="@+id/AddFood"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_above="@+id/titleFoodUser"
+        android:layout_alignStart="@+id/listFood"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="115dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/corner_button"
+        android:text="Add new food" />
+
+    <TextView
+        android:id="@+id/titleFoodUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/foodIdEditText"
+        android:layout_marginBottom="10dp"
+        android:text="Add New Food User"
+        android:textColor="#70E83F"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/foodIdEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_above="@+id/userIdEditText"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Food ID"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/userIdEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_above="@+id/useDatetimeEditText"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="User ID"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/useDatetimeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_above="@+id/sessionsSpinner"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Use Datetime"
+        android:padding="10dp" />
+
+    <Spinner
+        android:id="@+id/sessionsSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_above="@+id/sessionsSpinnerView"
+        android:entries="@array/Session_items"
+        android:layout_marginBottom="10dp"
+        android:paddingBottom="2dp" />
+
+    <View
+        android:id="@+id/sessionsSpinnerView"
+        android:layout_width="372dp"
+        android:layout_height="2dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/AddNewFoodUser"
+        android:background="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/AddNewFoodUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/sessionsSpinner"
+        android:layout_alignEnd="@+id/sessionsSpinner"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="143dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/corner_button"
+        android:text="Create" />
+
+
+</RelativeLayout>

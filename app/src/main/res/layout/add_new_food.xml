@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add new food"
+        android:layout_marginBottom="40dp"
+        android:textColor="#70E83F"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/attachmentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Attachment" />
+
+    <EditText
+        android:id="@+id/ingredientsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Ingredients" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/nutritionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Nutrition" />
+
+    <EditText
+        android:id="@+id/recipeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Recipe" />
+
+    <EditText
+        android:id="@+id/kcalEditText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner_white"
+        android:hint="Kcal"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/addNewFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Add new food"
+        android:background="@drawable/corner_button"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
