@@ -42,7 +42,7 @@ public class AddNewFood extends AppCompatActivity {
         addNewFood = findViewById(R.id.addNewFood);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.135.219:3000/")
+                .baseUrl("http://172.16.1.236:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

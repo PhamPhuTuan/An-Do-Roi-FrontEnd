@@ -53,7 +53,7 @@ public class ViewMessage extends AppCompatActivity {
     }
     private void getMessageOfUser(int conversationId) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.135.219:3000/")
+                .baseUrl("http://172.16.1.236:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiService apiService = retrofit.create(ApiService.class);
@@ -80,7 +80,7 @@ public class ViewMessage extends AppCompatActivity {
     private void postMessageOfUser(String messageContent, int conversationId, int userId) {
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.135.219:3000/")
+                .baseUrl("http://172.16.1.236:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
