@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Feeds"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp" />
+    <EditText
+        android:id="@+id/postEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="How are you today"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/selectImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_image_24" />
+        <Button
+            android:id="@+id/btnPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="post"/>
+
+    </LinearLayout>
+
+    <!-- Danh sách bài viết -->
+    <ListView
+        android:id="@+id/feedsListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>

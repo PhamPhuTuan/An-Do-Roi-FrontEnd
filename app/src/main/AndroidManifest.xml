@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -11,13 +12,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication"
+        android:theme="@style/Theme.Post"
         tools:targetApi="31">
-        <activity android:name=".ViewMessage" />
-        <activity android:name=".ViewFood" />
-        <activity android:name=".AddNewFoodUserActivity"/>
-        <activity android:name=".AddNewFood"/>
-        <activity android:name=".AddNewConversation"/>
+        <activity android:name=".CommentActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
