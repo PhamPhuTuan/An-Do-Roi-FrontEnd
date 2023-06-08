@@ -1,6 +1,7 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
 
-import android.content.Intent;
+import static com.example.myapplication.retrofit.RetrofitClient.getRetrofitInstance;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.model.Message;
+import com.example.myapplication.adapter.MessageAdapter;
+import com.example.myapplication.R;
+import com.example.myapplication.retrofit.ApiService;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -52,10 +57,8 @@ public class ViewMessage extends AppCompatActivity {
         });
     }
     private void getMessageOfUser(int conversationId) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.16.1.236:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = getRetrofitInstance();
+
         ApiService apiService = retrofit.create(ApiService.class);
         Call<List<Message>> call = apiService.getNewApi(conversationId);
         call.enqueue(new Callback<List<Message>>() {
@@ -80,7 +83,7 @@ public class ViewMessage extends AppCompatActivity {
     private void postMessageOfUser(String messageContent, int conversationId, int userId) {
         // Khởi tạo Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.16.1.236:3000/")
+                .baseUrl("http://172.16.1.106:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

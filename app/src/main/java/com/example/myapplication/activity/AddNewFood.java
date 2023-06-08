@@ -1,4 +1,6 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
+
+import static com.example.myapplication.retrofit.RetrofitClient.getRetrofitInstance;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,11 +13,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.model.FoodItem;
+import com.example.myapplication.R;
+import com.example.myapplication.retrofit.ApiService;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddNewFood extends AppCompatActivity {
 
@@ -41,10 +46,7 @@ public class AddNewFood extends AppCompatActivity {
         kcalEditText = findViewById(R.id.kcalEditText);
         addNewFood = findViewById(R.id.addNewFood);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.16.1.236:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = getRetrofitInstance();
 
         // Tạo đối tượng FoodApiService
         ApiService apiService = retrofit.create(ApiService.class);

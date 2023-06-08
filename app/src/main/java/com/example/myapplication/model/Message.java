@@ -1,6 +1,4 @@
-package com.example.myapplication;
-
-import java.util.List;
+package com.example.myapplication.model;
 
 public class Message {
     private int _id;

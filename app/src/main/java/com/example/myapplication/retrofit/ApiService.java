@@ -1,4 +1,9 @@
-package com.example.myapplication;
+package com.example.myapplication.retrofit;
+
+import com.example.myapplication.model.Conversation;
+import com.example.myapplication.model.FoodItem;
+import com.example.myapplication.model.FoodUser;
+import com.example.myapplication.model.Message;
 
 import java.util.List;
 

@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
-        <activity android:name=".ViewMessage" />
-        <activity android:name=".ViewFood" />
-        <activity android:name=".AddNewFoodUserActivity"/>
-        <activity android:name=".AddNewFood"/>
-        <activity android:name=".AddNewConversation"/>
+        <activity android:name=".activity.ViewMessage" />
+        <activity android:name=".activity.ViewFood" />
+        <activity android:name=".activity.AddNewFoodUserActivity"/>
+        <activity android:name=".activity.AddNewFood"/>
+        <activity android:name=".activity.AddNewConversation"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.Conversation_user_gets"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,6 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
+
+import static com.example.myapplication.retrofit.RetrofitClient.getRetrofitInstance;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,14 +16,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.myapplication.model.Conversation;
+import com.example.myapplication.adapter.ConversationAdapter;
+import com.example.myapplication.R;
+import com.example.myapplication.retrofit.ApiService;
+
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements ConversationAdapter.OnConversationClickListener {
+public class Conversation_user_gets extends AppCompatActivity implements ConversationAdapter.OnConversationClickListener {
 
     private ListView listView;
     private List<Conversation> conversationList;
@@ -42,10 +49,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
         foodActivity = findViewById(R.id.foodActivity);
 
         // Khởi tạo Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.16.1.236:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = getRetrofitInstance();
 
         // Khởi tạo ApiService
         apiService = retrofit.create(ApiService.class);
@@ -80,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
         addNewPartner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Vo ne", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, AddNewConversation.class);
+                Toast.makeText(Conversation_user_gets.this, "Vo ne", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Conversation_user_gets.this, AddNewConversation.class);
                 startActivity(intent);
             }
         });
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
             public void onClick(View v) {
                 // Xử lý sự kiện onClick tại đây
                 Log.d("bug", "onClick: ");
-                Intent intent = new Intent(MainActivity.this, ViewFood.class);
+                Intent intent = new Intent(Conversation_user_gets.this, ViewFood.class);
                 startActivity(intent);
             }
         });
@@ -105,19 +109,19 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
                     conversationList = response.body();
                     // Xử lý dữ liệu conversation
                     // Tạo adapter và gán cho ListView
-                    adapter = new ConversationAdapter(MainActivity.this, conversationList);
-                    adapter.setOnConversationClickListener(MainActivity.this); // Đăng ký listener
+                    adapter = new ConversationAdapter(Conversation_user_gets.this, conversationList);
+                    adapter.setOnConversationClickListener(Conversation_user_gets.this); // Đăng ký listener
                     listView.setAdapter(adapter);
                 } else {
                     // Xử lý khi response không thành công
-                    Toast.makeText(MainActivity.this, "Failed to get conversation", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Conversation_user_gets.this, "Failed to get conversation", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Conversation>> call, Throwable t) {
                 // Xử lý khi gặp lỗi trong quá trình gọi API
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Conversation_user_gets.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -133,17 +137,17 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
                     conversationList = response.body();
 
                     // Tạo adapter và gán cho ListView
-                    adapter = new ConversationAdapter(MainActivity.this, conversationList);
-                    adapter.setOnConversationClickListener(MainActivity.this); // Đăng ký listener
+                    adapter = new ConversationAdapter(Conversation_user_gets.this, conversationList);
+                    adapter.setOnConversationClickListener(Conversation_user_gets.this); // Đăng ký listener
                     listView.setAdapter(adapter);
                 } else {
-                    Toast.makeText(MainActivity.this, "Failed to get conversation", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Conversation_user_gets.this, "Failed to get conversation", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Conversation>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Conversation_user_gets.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });
@@ -153,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements ConversationAdapt
     @Override
     public void onConversationClick(int conversationId, int userId) {
         // Xử lý sự kiện khi người dùng nhấp vào một cuộc trò chuyện
-        Intent intent = new Intent(MainActivity.this, ViewMessage.class);
+        Intent intent = new Intent(Conversation_user_gets.this, ViewMessage.class);
 //         Khởi chạy Intent
         intent.putExtra("conversation_id", conversationId);
         intent.putExtra("user_id", userId);

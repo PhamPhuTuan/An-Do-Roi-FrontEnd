@@ -1,6 +1,4 @@
-package com.example.myapplication;
-
-import com.google.gson.annotations.SerializedName;
+package com.example.myapplication.model;
 
 public class Conversation {
     private int _id;
