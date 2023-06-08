@@ -1,4 +1,6 @@
-package com.example.post;
+package com.example.post.activity;
+
+import static com.example.post.retrofit.RetrofitClient.getRetrofitInstance;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.post.model.LikeRequest;
+import com.example.post.model.Post;
+import com.example.post.adapter.PostItemAdapter;
+import com.example.post.R;
+import com.example.post.retrofit.ApiService;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -20,9 +27,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements PostItemAdapter.OnCommentClickListener, PostItemAdapter.OnLikeClickListener {
+public class PostActivity extends AppCompatActivity implements PostItemAdapter.OnCommentClickListener, PostItemAdapter.OnLikeClickListener {
 
     private ListView feedsListView;
 //    private ArrayAdapter<String> feedsAdapter;
@@ -43,10 +49,7 @@ public class MainActivity extends AppCompatActivity implements PostItemAdapter.O
         btnPost = findViewById(R.id.btnPost);
 
         // Khởi tạo Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.106.174:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = getRetrofitInstance();
 
         // Khởi tạo ApiService
         apiService = retrofit.create(ApiService.class);
@@ -76,18 +79,18 @@ public class MainActivity extends AppCompatActivity implements PostItemAdapter.O
                     PostList = response.body();
                     Log.d("bug", String.valueOf(new Gson().toJson(PostList)));
 //                    // Tạo adapter và gán cho ListView
-                    adapter = new PostItemAdapter(MainActivity.this, PostList);
-                    adapter.setOnCommentClickListener(MainActivity.this); // Đăng ký listener
-                    adapter.setOnLikeClickListener(MainActivity.this); // Đăng ký listener
+                    adapter = new PostItemAdapter(PostActivity.this, PostList);
+                    adapter.setOnCommentClickListener(PostActivity.this); // Đăng ký listener
+                    adapter.setOnLikeClickListener(PostActivity.this); // Đăng ký listener
                     feedsListView.setAdapter(adapter);
                 } else {
-                    Toast.makeText(MainActivity.this, "Failed to get post", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Failed to get post", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });
@@ -112,18 +115,18 @@ public class MainActivity extends AppCompatActivity implements PostItemAdapter.O
                     Post post = response.body();
 //                    Log.d("bug", String.valueOf(new Gson().toJson(postedFoodUser)));
                     getAllPost(apiService);
-                    Toast.makeText(MainActivity.this, "Post successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Post successfully", Toast.LENGTH_SHORT).show();
 //                    }
                 } else {
                     // Xử lý lỗi khi gửi yêu cầu POST
-                    Toast.makeText(MainActivity.this, "Failed to post", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Failed to post", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Post> call, Throwable t) {
                 // Xử lý lỗi kết nối hoặc lỗi trong quá trình gửi yêu cầu POST
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements PostItemAdapter.O
     @Override
     public void onCommentClick(int postId, int userId) {
         // Xử lý sự kiện khi người dùng nhấp vào một cuộc trò chuyện
-        Intent intent = new Intent(MainActivity.this, CommentActivity.class);
+        Intent intent = new Intent(PostActivity.this, CommentActivity.class);
 //         Khởi chạy Intent
         intent.putExtra("post_id", postId);
         intent.putExtra("user_id", userId);
@@ -154,14 +157,14 @@ public class MainActivity extends AppCompatActivity implements PostItemAdapter.O
                     getAllPost(apiService);
                 } else {
                     // Xử lý khi request thất bại
-                    Toast.makeText(MainActivity.this, "Failed to like post", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Failed to like post", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 // Xử lý khi request gặp lỗi
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(PostActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });

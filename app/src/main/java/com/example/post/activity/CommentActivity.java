@@ -1,4 +1,6 @@
-package com.example.post;
+package com.example.post.activity;
+
+import static com.example.post.retrofit.RetrofitClient.getRetrofitInstance;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,6 +15,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.post.adapter.CommentAdapter;
+import com.example.post.model.PostReaction;
+import com.example.post.R;
+import com.example.post.retrofit.ApiService;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -21,7 +27,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CommentActivity  extends AppCompatActivity {
 
@@ -61,10 +66,7 @@ public class CommentActivity  extends AppCompatActivity {
         });
 
         // Khởi tạo Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.106.174:3000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = getRetrofitInstance();
 
         // Khởi tạo ApiService
         apiService = retrofit.create(ApiService.class);

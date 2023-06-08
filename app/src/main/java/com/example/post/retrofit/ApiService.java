@@ -1,4 +1,8 @@
-package com.example.post;
+package com.example.post.retrofit;
+
+import com.example.post.model.LikeRequest;
+import com.example.post.model.Post;
+import com.example.post.model.PostReaction;
 
 import java.util.List;
 
@@ -6,7 +10,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {

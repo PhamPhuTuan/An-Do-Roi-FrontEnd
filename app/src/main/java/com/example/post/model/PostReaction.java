@@ -1,4 +1,4 @@
-package com.example.post;
+package com.example.post.model;
 
 public class PostReaction {
     private String attachment;

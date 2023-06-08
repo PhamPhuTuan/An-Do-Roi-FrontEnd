@@ -1,4 +1,4 @@
-package com.example.post;
+package com.example.post.model;
 
 import java.util.List;
 
